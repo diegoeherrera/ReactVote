@@ -4,21 +4,20 @@ import React, { Component } from 'react';
 class PrintPosts extends Component {
 
 
-   componentDidMount(){
 
-  }
 
   render(){
 
     return(
       <ul>
 
-        { this.props.forPrint.map(function(post){
-        return  (<li key={post.id}><h4>{post.titulo}</h4>
+        { this.props.forPrint.map((post)=>{
+        return  (<li key={post.id}>
+                  <h4>{post.titulo}</h4>
                     <p>{post.bajada}</p>
-                <button onClick={event=>this.props.vote("caca")}>Votar + </button>
-                <button>Votar - </button>
-                <p>Cantidad de Votos:</p>
+                <button onClick={event=>this.props.vote(post.id,1)}>Votar + </button>
+                <button onClick={event=>this.props.vote(post.id,-1)} >Votar - </button>
+                <p>Cantidad de Votos: {post.votes}</p>
                 <hr/>
                 </li>
               )

@@ -18,15 +18,31 @@ constructor(props){
           response.json()
 
           )
-          .then(posts=>
+          .then(posts=>{
 
           this.setState({allPosts:posts})
+          //le agrego la key votes a todos los posts
+          let post=this.state.allPosts.map(post=>post.votes=0)
+          this.setState({allPosts:posts})
 
-          )
+        })
+
+
      };
 
-handleVote(id){
-  console.log(id);
+handleVote(id,num){
+
+let posts=this.state.allPosts;
+
+posts=posts.map((post)=>{
+  if(post.id==id){
+    post.votes+=num
+    console.log(post.votes)
+  }
+
+})
+
+
 }
 
   render() {
