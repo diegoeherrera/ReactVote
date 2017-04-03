@@ -51,7 +51,7 @@ this.setState({allPosts:[...posts]})
 
   render() {
 
-    const orderedPosts= this.state.allPosts.sort((a,b)=> a.votes > b.votes)
+    const orderedPosts= this.state.allPosts.sort((a,b)=> a.votes - b.votes).reverse()
 
 
     return (<PrintPosts forPrint={orderedPosts} vote={this.handleVote.bind(this)} />)
