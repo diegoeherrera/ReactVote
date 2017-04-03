@@ -37,17 +37,24 @@ let posts=this.state.allPosts;
 posts=posts.map((post)=>{
   if(post.id==id){
     post.votes+=num
-    console.log(post.votes)
   }
+  return post
+
 
 })
+
+this.setState({allPosts:[...posts]})
+
 
 
 }
 
   render() {
 
-    return (<PrintPosts forPrint={this.state.allPosts} vote={this.handleVote.bind(this)} />)
+    const orderedPosts= this.state.allPosts.sort((a,b)=> a.votes > b.votes)
+
+
+    return (<PrintPosts forPrint={orderedPosts} vote={this.handleVote.bind(this)} />)
 
   }
 }

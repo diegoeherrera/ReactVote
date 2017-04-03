@@ -8,10 +8,13 @@ class PrintPosts extends Component {
 
   render(){
 
+    
+
     return(
       <ul>
 
         { this.props.forPrint.map((post)=>{
+
         return  (<li key={post.id}>
                   <h4>{post.titulo}</h4>
                     <p>{post.bajada}</p>
